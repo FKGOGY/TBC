@@ -1,0 +1,111 @@
+[gd_scene load_steps=12 format=3 uid="uid://d117owevnpclo"]
+
+[ext_resource type="Script" path="res://Game/Game.gd" id="1_8ga4s"]
+[ext_resource type="Script" path="res://Game/CommandProcessor.gd" id="2_sr8fm"]
+[ext_resource type="FontFile" uid="uid://cbd7x4vjjbpcg" path="res://Assets/Roboto-Regular.ttf" id="3_87xy0"]
+[ext_resource type="Script" path="res://Game/UserInput.gd" id="4_e67rm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pobdq"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_58kec"]
+content_margin_left = 5.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.219608, 0.219608, 0.219608, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rgs3c"]
+bg_color = Color(0.317647, 0.317647, 0.317647, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8yb01"]
+
+[sub_resource type="Theme" id="Theme_2y0b7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j446a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ruk4y"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8ga4s")
+
+[node name="CommandProcessor" type="Node" parent="."]
+script = ExtResource("2_sr8fm")
+
+[node name="Background" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pobdq")
+
+[node name="MarginContainer" type="MarginContainer" parent="Background"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="Rows" type="VBoxContainer" parent="Background/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="GameInfo" type="PanelContainer" parent="Background/MarginContainer/Rows"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_58kec")
+
+[node name="Scroll" type="ScrollContainer" parent="Background/MarginContainer/Rows/GameInfo"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="HistoryRows" type="VBoxContainer" parent="Background/MarginContainer/Rows/GameInfo/Scroll"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="InputArea" type="PanelContainer" parent="Background/MarginContainer/Rows"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+theme_override_styles/panel = SubResource("StyleBoxFlat_rgs3c")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Background/MarginContainer/Rows/InputArea"]
+layout_mode = 2
+
+[node name="Tab" type="Label" parent="Background/MarginContainer/Rows/InputArea/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_87xy0")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8yb01")
+text = " > "
+
+[node name="UserInput" type="LineEdit" parent="Background/MarginContainer/Rows/InputArea/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_2y0b7")
+theme_override_fonts/font = ExtResource("3_87xy0")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxEmpty_j446a")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ruk4y")
+max_length = 50
+script = ExtResource("4_e67rm")
+
+[connection signal="text_submitted" from="Background/MarginContainer/Rows/InputArea/HBoxContainer/UserInput" to="." method="_on_input_text_submitted"]
+[connection signal="text_submitted" from="Background/MarginContainer/Rows/InputArea/HBoxContainer/UserInput" to="Background/MarginContainer/Rows/InputArea/HBoxContainer/UserInput" method="_on_text_submitted"]

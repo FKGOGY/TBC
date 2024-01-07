@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://diadifdskprgy"]
+
+[ext_resource type="FontFile" uid="uid://cbd7x4vjjbpcg" path="res://Assets/Roboto-Regular.ttf" id="1_5e5n3"]
+[ext_resource type="Script" path="res://Game/InputResponse.gd" id="1_bdh51"]
+
+[node name="InputResponse" type="VBoxContainer"]
+theme_override_constants/separation = 0
+script = ExtResource("1_bdh51")
+
+[node name="InputHistory" type="Label" parent="."]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.631373, 0.631373, 0.631373, 1)
+theme_override_fonts/font = ExtResource("1_5e5n3")
+theme_override_font_sizes/font_size = 24
+text = "> User Input"
+
+[node name="Response" type="Label" parent="."]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5e5n3")
+theme_override_font_sizes/font_size = 30
+text = "Response"
