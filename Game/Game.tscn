@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://d117owevnpclo"]
+[gd_scene load_steps=13 format=3 uid="uid://d117owevnpclo"]
 
 [ext_resource type="Script" path="res://Game/Game.gd" id="1_8ga4s"]
 [ext_resource type="Script" path="res://Game/CommandProcessor.gd" id="2_sr8fm"]
 [ext_resource type="FontFile" uid="uid://cbd7x4vjjbpcg" path="res://Assets/Roboto-Regular.ttf" id="3_87xy0"]
+[ext_resource type="PackedScene" uid="uid://ds03pw6ewve5h" path="res://Game/Room.tscn" id="3_omihw"]
 [ext_resource type="Script" path="res://Game/UserInput.gd" id="4_e67rm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pobdq"]
@@ -46,6 +47,12 @@ script = ExtResource("1_8ga4s")
 [node name="CommandProcessor" type="Node" parent="."]
 script = ExtResource("2_sr8fm")
 
+[node name="RoomManager" type="Node" parent="."]
+
+[node name="Room" parent="RoomManager" instance=ExtResource("3_omihw")]
+offset_left = 301.0
+offset_right = 551.0
+
 [node name="Background" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -78,6 +85,8 @@ vertical_scroll_mode = 2
 
 [node name="HistoryRows" type="VBoxContainer" parent="Background/MarginContainer/Rows/GameInfo/Scroll"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_constants/separation = 15
 
 [node name="InputArea" type="PanelContainer" parent="Background/MarginContainer/Rows"]

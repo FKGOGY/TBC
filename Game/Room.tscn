@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://ds03pw6ewve5h"]
+
+[ext_resource type="Script" path="res://Game/Room.gd" id="1_wkwff"]
+[ext_resource type="FontFile" uid="uid://cb15gob56y3ph" path="res://Assets/Roboto-Medium.ttf" id="2_u0b0j"]
+[ext_resource type="FontFile" uid="uid://cbd7x4vjjbpcg" path="res://Assets/Roboto-Regular.ttf" id="3_8ynlk"]
+
+[node name="Room" type="PanelContainer"]
+offset_left = 302.0
+offset_top = -343.0
+offset_right = 552.0
+offset_bottom = -243.0
+script = ExtResource("1_wkwff")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="Rows" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="RoomName" type="Label" parent="MarginContainer/Rows"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_u0b0j")
+theme_override_font_sizes/font_size = 24
+text = "RoomName
+"
+horizontal_alignment = 1
+
+[node name="RoomDescription" type="Label" parent="MarginContainer/Rows"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_8ynlk")
+theme_override_font_sizes/font_size = 18
+text = "Room Description
+"
+autowrap_mode = 3

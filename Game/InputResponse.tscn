@@ -1,21 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://diadifdskprgy"]
+[gd_scene load_steps=4 format=3 uid="uid://diadifdskprgy"]
 
-[ext_resource type="FontFile" uid="uid://cbd7x4vjjbpcg" path="res://Assets/Roboto-Regular.ttf" id="1_5e5n3"]
 [ext_resource type="Script" path="res://Game/InputResponse.gd" id="1_bdh51"]
+[ext_resource type="PackedScene" uid="uid://di2f3drpndpor" path="res://Game/InputHistory.tscn" id="2_3skl5"]
+[ext_resource type="PackedScene" uid="uid://dc8bswfnrgw07" path="res://Game/Response.tscn" id="3_pa85a"]
 
 [node name="InputResponse" type="VBoxContainer"]
+offset_right = 552.0
+offset_bottom = 71.0
 theme_override_constants/separation = 0
 script = ExtResource("1_bdh51")
 
-[node name="InputHistory" type="Label" parent="."]
+[node name="InputHistory" parent="." instance=ExtResource("2_3skl5")]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.631373, 0.631373, 0.631373, 1)
-theme_override_fonts/font = ExtResource("1_5e5n3")
-theme_override_font_sizes/font_size = 24
-text = "> User Input"
 
-[node name="Response" type="Label" parent="."]
+[node name="Response" parent="." instance=ExtResource("3_pa85a")]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_5e5n3")
-theme_override_font_sizes/font_size = 30
-text = "Response"

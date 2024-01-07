@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dc8bswfnrgw07"]
+
+[ext_resource type="FontFile" uid="uid://cbd7x4vjjbpcg" path="res://Assets/Roboto-Regular.ttf" id="1_lfll5"]
+
+[node name="Response" type="Label"]
+offset_right = 1030.0
+offset_bottom = 39.0
+theme_override_fonts/font = ExtResource("1_lfll5")
+theme_override_font_sizes/font_size = 30
+text = "Response"
+autowrap_mode = 3
