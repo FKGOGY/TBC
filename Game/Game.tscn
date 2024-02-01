@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://d117owevnpclo"]
+[gd_scene load_steps=14 format=3 uid="uid://d117owevnpclo"]
 
 [ext_resource type="Script" path="res://Game/Game.gd" id="1_8ga4s"]
 [ext_resource type="Script" path="res://Game/CommandProcessor.gd" id="2_sr8fm"]
+[ext_resource type="Script" path="res://Game/EntityClass.gd" id="2_wo6g6"]
 [ext_resource type="FontFile" uid="uid://cbd7x4vjjbpcg" path="res://Assets/Roboto-Regular.ttf" id="3_87xy0"]
 [ext_resource type="PackedScene" uid="uid://ds03pw6ewve5h" path="res://Game/Room.tscn" id="3_omihw"]
 [ext_resource type="Script" path="res://Game/UserInput.gd" id="4_e67rm"]
@@ -44,14 +45,21 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8ga4s")
 
+[node name="Entity" type="Node" parent="."]
+script = ExtResource("2_wo6g6")
+
 [node name="CommandProcessor" type="Node" parent="."]
 script = ExtResource("2_sr8fm")
 
 [node name="RoomManager" type="Node" parent="."]
 
 [node name="Room" parent="RoomManager" instance=ExtResource("3_omihw")]
-offset_left = 301.0
-offset_right = 551.0
+offset_left = 32.0
+offset_top = -148.0
+offset_right = 282.0
+offset_bottom = -48.0
+roomName = "House"
+roomDescription = "A random House."
 
 [node name="Background" type="PanelContainer" parent="."]
 layout_mode = 1

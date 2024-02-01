@@ -5,10 +5,10 @@
 [ext_resource type="FontFile" uid="uid://cbd7x4vjjbpcg" path="res://Assets/Roboto-Regular.ttf" id="3_8ynlk"]
 
 [node name="Room" type="PanelContainer"]
-offset_left = 302.0
-offset_top = -343.0
-offset_right = 552.0
-offset_bottom = -243.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 258.0
+offset_bottom = 108.0
 script = ExtResource("1_wkwff")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
